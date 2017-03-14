@@ -1,0 +1,28 @@
+
+<% @user_items.each do |u| %>
+<div>
+     <%= link_to gravatar_for(u, size: 50 ) , u %>
+     <h1><%= u.name %></h1>
+     <h2><%= u.email %></h2>
+     <h4>The above user has requested for the following book/books:</h4>
+       <% @rels.each do |r| %>
+
+
+       <% @micropost_items.each do |m| %>
+          <% if r.buyer_id==u.id && r.message_id==m.id %>
+
+        <div>
+        
+          <%= m.title %>
+          
+        </div> 
+         <% end %>
+       <% end %> 
+     <% end %>  
+   
+
+   <%= will_paginate @user_items %>
+</div>
+<% end %>
+
+

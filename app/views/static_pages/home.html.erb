@@ -1,0 +1,31 @@
+<% if logged_in? %>
+
+<div class="row">
+<aside class="col-md-4">
+<section class="user_info">
+	<%= render 'shared/user_info' %>
+</section>
+
+
+
+ 
+
+</aside>
+</div>
+<div class="col-md-8">
+<h3>Recommendations!</h3>
+<%= render 'shared/feed' %>
+</div>
+<% else %>
+
+
+<div class="center jumbotron">
+<h1>Welcome to book go!</h1>
+
+
+ <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
+<% end %>
